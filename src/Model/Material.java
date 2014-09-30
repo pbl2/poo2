@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -23,44 +23,50 @@ public class Material {
         this.idCompartimento = idCompartimento;
     }
 
-    public int getId() {
-        return id;
+    public Material() {
+        
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public char getEstado() {
         return estado;
     }
 
-    public void setEstado(char estado) {
-        this.estado = estado;
-    }
-
     public char getEstado_Chegada() {
         return estado_Chegada;
-    }
-
-    public void setEstado_Chegada(char estado_Chegada) {
-        this.estado_Chegada = estado_Chegada;
     }
 
     public int getIdCompartimento() {
         return idCompartimento;
     }
 
-    public void setIdCompartimento(int idCompartimento) {
-        this.idCompartimento = idCompartimento;
-    }
-
     public int getIdGrupoMaterial() {
         return idGrupoMaterial;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setEstado(char estado) {
+        this.estado = estado;
+    }
+
+    public void setEstado_Chegada(char estado_Chegada) {
+        this.estado_Chegada = estado_Chegada;
+    }
+
+    public void setIdCompartimento(int idCompartimento) {
+        this.idCompartimento = idCompartimento;
     }
 
     public void setIdGrupoMaterial(int idGrupoMaterial) {
         this.idGrupoMaterial = idGrupoMaterial;
     }
     
+    
+      
 }

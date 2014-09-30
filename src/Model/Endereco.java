@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -25,45 +25,49 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public int getId() {
-        return id;
+    public Endereco() {
+        
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
     public String getCidade() {
         return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public String getRua() {
         return rua;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
     public int getNumero() {
         return numero;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
+
     
 }

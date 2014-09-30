@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package DAO;
 
-import Model.Cargo;
+import Model.Compartimento;
 import Model.Responsavel;
+import Model.TipoCompartimento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,16 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
- * @author Eunice Muzime
+ * @author e1000son
  */
-public class ResponsavelDAO {
-    private Connection con;
+public class TipoCompartimentoDAO {
+     private Connection con;
     PreparedStatement stmt;
     ResultSet rs;
     
-    public ResponsavelDAO(){
+    public TipoCompartimentoDAO(){
          try {
            this.con = ConexaoBD.getConnection();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -33,46 +34,38 @@ public class ResponsavelDAO {
         }
     }
     
-     public void registarResponsavel(Responsavel responsavel){
+     public void registarTipoCompartimentoDAO(TipoCompartimento tipoCompartimento){
         try {
-            String sql = "Insert into Responsavel(idResponsavel,apelido,outrosNomes,Cargo_idCargo) values (?,?,?,?)";
+            String sql = "Insert into TipoCompartimento(idTipoCompartimento,designacao) values (?,?)";
             
             stmt = this.con.prepareStatement(sql);
-            stmt.setInt(1, responsavel.getId());
-            stmt.setString(2, responsavel.getApelido());
-            stmt.setString(3, responsavel.getOutrosNomes());
-            //stmt.setInt(4,responsavel.getCargo_idCargo());
-            stmt.setInt(4, responsavel.getCargo_idCargo().getId());
-            
+            stmt.setInt(1, tipoCompartimento.getId());
+            stmt.setString(2,tipoCompartimento.getDesignacao());
+                       
             stmt.execute();
             stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(ResponsavelDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
-    }
+    
+}
      
-     public List<Responsavel> listarTodos(){
-        String sql = "Select * from Responsavel";
+     public List<TipoCompartimento> listarTodos(){
+        String sql = "Select * from TipoCompartimento";
         try{ 
         stmt = this.con.prepareStatement(sql);
         rs = stmt.executeQuery();
        
-         List<Responsavel> responsaveis = new ArrayList<>();
+         List<TipoCompartimento> tipoCompartimentos = new ArrayList<>();
         while (rs.next()){
-            Responsavel responsavel = new Responsavel();
-            responsavel.setId(rs.getInt("idResponsavel"));
-            responsavel.setApelido(rs.getString("apelido"));
-            responsavel.setOutrosNomes(rs.getString("outrosNomes"));
-            //responsavel.setCargo_idCargo(rs.getInt("Cargo_idCargo"));
-            //responsavel.setCargo_idCargo((Cargo)rs.getObject("Cargo_idCargo"));
-            responsaveis.add(responsavel);
+            TipoCompartimento tipoCompartimento = new TipoCompartimento();
+            tipoCompartimento.setId(rs.getInt("idTipoCompartimento"));
+            tipoCompartimento.setDesignacao(rs.getString("designacao"));
         }
         stmt.close();
-        return responsaveis;
+        return tipoCompartimentos;
        }catch (SQLException e) {
             throw new RuntimeException(e);
     }
 }
-
-    }
+}

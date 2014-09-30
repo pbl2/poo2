@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -13,11 +13,13 @@ package Acesso;
 public class Compartimento {
     private int id;
     private String designacao;
-    private byte piso;
-    private int idTipoCompart;
-    private int idResponsavel;
+    private String piso;
+   // private int idTipoCompart;
+  //  private int idResponsavel;
+    private Model.TipoCompartimento idTipoCompart;
+    private Responsavel idResponsavel;
 
-    public Compartimento(int id, String designacao, byte piso, int idTipoCompart, int idResponsavel) {
+    public Compartimento(int id, String designacao, String piso,TipoCompartimento idTipoCompart,Responsavel  idResponsavel) {
         this.id = id;
         this.designacao = designacao;
         this.piso = piso;
@@ -25,43 +27,47 @@ public class Compartimento {
         this.idResponsavel = idResponsavel;
     }
 
-    public int getId() {
-        return id;
+    public Compartimento(){
+        
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getDesignacao() {
         return designacao;
     }
 
+    public String getPiso() {
+        return piso;
+    }
+
+    public TipoCompartimento getIdTipoCompart() {
+        return idTipoCompart;
+    }
+
+    public Responsavel getIdResponsavel() {
+        return idResponsavel;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setDesignacao(String designacao) {
         this.designacao = designacao;
     }
 
-    public byte getPiso() {
-        return piso;
-    }
-
-    public void setPiso(byte piso) {
+    public void setPiso(String piso) {
         this.piso = piso;
     }
 
-    public int getIdTipoCompart() {
-        return idTipoCompart;
-    }
-
-    public void setIdTipoCompart(int idTipoCompart) {
+    public void setIdTipoCompart(TipoCompartimento idTipoCompart) {
         this.idTipoCompart = idTipoCompart;
     }
 
-    public int getIdResponsavel() {
-        return idResponsavel;
-    }
-
-    public void setIdResponsavel(int idResponsavel) {
+    public void setIdResponsavel(Responsavel idResponsavel) {
         this.idResponsavel = idResponsavel;
     }
     

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -20,30 +20,33 @@ public class Fornecedor {
         this.nome = nome;
         this.idEndereco = idEndereco;
     }
+    
+    public Fornecedor() {
+     
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public int getIdEndereco() {
         return idEndereco;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setIdEndereco(int idEndereco) {
         this.idEndereco = idEndereco;
     }
-    
-    
-}
+
+    }

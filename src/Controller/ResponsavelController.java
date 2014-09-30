@@ -23,15 +23,6 @@ public class ResponsavelController {
     
     public void registarResponsavel(Responsavel responsavel){
         try {
-            //Fazer as validacoes do respons
-            
-            
-            
-            
-            
-            
-            //Depois chamar o metodo a seguir
-            
             responsavelDAO.registarResponsavel(responsavel);
             
         } catch (Exception e) {

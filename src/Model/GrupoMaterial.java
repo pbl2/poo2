@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -26,53 +26,58 @@ public class GrupoMaterial {
         this.idFornecedor = idFornecedor;
         this.idMaterial = idMaterial;
     }
+    
+     public GrupoMaterial() {
+        
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTempo_int() {
         return tempo_int;
     }
 
-    public void setTempo_int(String tempo_int) {
-        this.tempo_int = tempo_int;
-    }
-
     public String getData_aquisicao() {
         return data_aquisicao;
-    }
-
-    public void setData_aquisicao(String data_aquisicao) {
-        this.data_aquisicao = data_aquisicao;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public int getIdFornecedor() {
         return idFornecedor;
-    }
-
-    public void setIdFornecedor(int idFornecedor) {
-        this.idFornecedor = idFornecedor;
     }
 
     public int getIdMaterial() {
         return idMaterial;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTempo_int(String tempo_int) {
+        this.tempo_int = tempo_int;
+    }
+
+    public void setData_aquisicao(String data_aquisicao) {
+        this.data_aquisicao = data_aquisicao;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setIdFornecedor(int idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
     public void setIdMaterial(int idMaterial) {
         this.idMaterial = idMaterial;
     }
+
     
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -20,29 +20,34 @@ public class Capacidade {
         this.idCategoria = idCategoria;
         this.capacidade = capacidade;
     }
+    
+    public Capacidade() {
+       
+    }
 
     public int getIdCompartimento() {
         return idCompartimento;
-    }
-
-    public void setIdCompartimento(int idCompartimento) {
-        this.idCompartimento = idCompartimento;
     }
 
     public int getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
     public int getCapacidade() {
         return capacidade;
+    }
+
+    public void setIdCompartimento(int idCompartimento) {
+        this.idCompartimento = idCompartimento;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
+
     
 }

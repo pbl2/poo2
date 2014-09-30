@@ -56,7 +56,7 @@ public class RegistarResponsavel extends javax.swing.JFrame {
         botCancelar = new javax.swing.JButton();
         cbxCargo = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblResponsavel = new javax.swing.JTable();
         btnListar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -138,15 +138,15 @@ public class RegistarResponsavel extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblResponsavel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nomes", "Apelido", "Cargo"
+                "Codigo", "Nomes", "Apelido"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblResponsavel);
 
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +279,7 @@ new ConfirmarGravacao();
     }//GEN-LAST:event_cbxCargoActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
+    listarResponsavel();
     }//GEN-LAST:event_btnListarActionPerformed
 
     /**
@@ -333,9 +333,9 @@ new ConfirmarGravacao();
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel painel1;
     private javax.swing.JPanel painelPrincipal;
+    private javax.swing.JTable tblResponsavel;
     private javax.swing.JTextField txtApelido;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
@@ -343,6 +343,7 @@ new ConfirmarGravacao();
     CargoController cc = new CargoController();
     Responsavel rem = new Responsavel();
     ResponsavelController rec = new ResponsavelController();
+   
     public void preencherComboBoxCargo(){
         List<Cargo> cargos = (List<Cargo>)cc.listarCargos();
         for (Cargo cargo : cargos) {
@@ -371,16 +372,16 @@ new ConfirmarGravacao();
         
         }
     
-//    public void listarResponsavel(){
-//        List<Responsavel>responsaveis =(List<Responsavel>)rec.Ser.listaEstudantes();//Lista de estudantes proven. dos sevicos
-//        DefaultTableModel model=(DefaultTableModel)tblEstudantes.getModel();//"Pega" a estrutura/formato da tabela
-//        for (Responsavel responsavel : responsaveis) {
-//            String []linhaDaTabela=new String[]{String.valueOf(estudante.getId()),
-//                estudante.getNome(),estudante.getMorada(),String.valueOf(estudante.getNroEstudante())};
-//            model.addRow(linhaDaTabela);//Adicionamos a linha a tabela (model)
-//        }
-//        model.setNumRows(estudantes.size());//Evita duplicacao de registos na tabela
-//        tblEstudantes.setModel(model);//Preenchemos a tabela com os valores do model
-//    }
+    public void listarResponsavel(){
+        List<Responsavel>responsaveis =(List<Responsavel>)rec.listarResponsavel();//Lista de estudantes proven. dos sevicos
+        DefaultTableModel model=(DefaultTableModel)tblResponsavel.getModel();//"Pega" a estrutura/formato da tabela
+        for (Responsavel responsavel : responsaveis) {
+            String []linhaDaTabela=new String[]{String.valueOf(responsavel.getId()),
+                responsavel.getOutrosNomes(),responsavel.getApelido()};
+            model.addRow(linhaDaTabela);//Adicionamos a linha a tabela (model)
+        }
+        model.setNumRows(responsaveis.size());//Evita duplicacao de registos na tabela
+        tblResponsavel.setModel(model);//Preenchemos a tabela com os valores do model
+    }
 
 }

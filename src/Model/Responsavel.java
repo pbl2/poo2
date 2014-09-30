@@ -17,47 +17,48 @@ public class Responsavel {
     //private int Cargo_idCargo;
     private Cargo cargo_idCargo;
     
-    public Responsavel(){
-        
-    }
-
     public Responsavel(String apelido, String outrosNomes, Cargo cargo_idCargo) {
         //this.id = id;
         this.apelido = apelido;
         this.outrosNomes = outrosNomes;
         this.cargo_idCargo = cargo_idCargo;
     }
+    
+     public Responsavel(){
+        
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getApelido() {
         return apelido;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
-    }
-
     public String getOutrosNomes() {
         return outrosNomes;
-    }
-
-    public void setOutrosNomes(String outrosNomes) {
-        this.outrosNomes = outrosNomes;
     }
 
     public Cargo getCargo_idCargo() {
         return cargo_idCargo;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
+    public void setOutrosNomes(String outrosNomes) {
+        this.outrosNomes = outrosNomes;
+    }
+
     public void setCargo_idCargo(Cargo cargo_idCargo) {
         this.cargo_idCargo = cargo_idCargo;
     }
 
+   
 }

@@ -29,20 +29,17 @@ public class Cargo implements Serializable{
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getDesignacao() {
         return designacao;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setDesignacao(String designacao) {
         this.designacao = designacao;
     }
-    
-    public String toString(){
-        return this.designacao;
-    }
+
     
 }

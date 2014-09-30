@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -18,21 +18,26 @@ public class TipoCompartimento {
         this.id = id;
         this.designacao = designacao;
     }
+    
+     public TipoCompartimento() {
+        
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDesignacao() {
         return designacao;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setDesignacao(String designacao) {
         this.designacao = designacao;
     }
+   
     
 }

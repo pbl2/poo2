@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -20,29 +20,33 @@ public class Electronico {
         this.idMaterial = idMaterial;
         this.energia = energia;
     }
+    
+    public Electronico() {
+        
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getIdMaterial() {
         return idMaterial;
     }
 
-    public void setIdMaterial(int idMaterial) {
-        this.idMaterial = idMaterial;
-    }
-
     public double getEnergia() {
         return energia;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setIdMaterial(int idMaterial) {
+        this.idMaterial = idMaterial;
     }
 
     public void setEnergia(double energia) {
         this.energia = energia;
     }
-    
+
 }

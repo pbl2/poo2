@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -19,20 +19,25 @@ public class NaoElectronico {
         this.idMaterial = idMaterial;
     }
 
-    public int getId() {
-        return id;
+     public NaoElectronico() {
+       
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public int getIdMaterial() {
         return idMaterial;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setIdMaterial(int idMaterial) {
         this.idMaterial = idMaterial;
     }
-    
+   
+       
 }

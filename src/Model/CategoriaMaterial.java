@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Acesso;
+package Model;
 
 /**
  *
@@ -20,29 +20,34 @@ public class CategoriaMaterial {
         this.designacao = designacao;
         this.identiTipo = identiTipo;
     }
+    
+    public CategoriaMaterial() {
+        
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDesignacao() {
         return designacao;
     }
 
-    public void setDesignacao(String designacao) {
-        this.designacao = designacao;
-    }
-
     public char getIdentiTipo() {
         return identiTipo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDesignacao(String designacao) {
+        this.designacao = designacao;
     }
 
     public void setIdentiTipo(char identiTipo) {
         this.identiTipo = identiTipo;
     }
-    
+
+   
 }
