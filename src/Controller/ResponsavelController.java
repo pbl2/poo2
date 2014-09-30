@@ -7,7 +7,9 @@ package Controller;
 
 import DAO.ResponsavelDAO;
 import Model.Responsavel;
+import java.sql.SQLException;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,11 +24,18 @@ public class ResponsavelController {
     }
     
     public void registarResponsavel(Responsavel responsavel){
+    
         try {
+            if(responsavel.getOutrosNomes().isEmpty()){
+                JOptionPane.showMessageDialog(null, "O nome deve ser preenchido!");
+            }
+            else if(responsavel.getApelido().isEmpty()){
+               JOptionPane.showMessageDialog(null, "Este campo nao deve estar vazio"); 
+            }
+            else
             responsavelDAO.registarResponsavel(responsavel);
-            
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Errro"+e);
         }
         
     }
@@ -34,6 +43,16 @@ public class ResponsavelController {
    public List<Responsavel> listarResponsavel(){
         List<Responsavel> responsaveis=(List<Responsavel>)responsavelDAO.listarTodos();
         return responsaveis;
-    } 
+    }
+   
+   public void apaga(Responsavel responsavel){
+        responsavelDAO.apagar(responsavel);
+    }
+   
+   public void actualizarResponsavel(Responsavel responsavel){
+     responsavelDAO.actualizarResponsavel(responsavel);
+    }
+   
+   
     
 }

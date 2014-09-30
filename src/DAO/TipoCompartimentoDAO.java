@@ -5,8 +5,6 @@
  */
 package DAO;
 
-import Model.Compartimento;
-import Model.Responsavel;
 import Model.TipoCompartimento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,5 +65,17 @@ public class TipoCompartimentoDAO {
        }catch (SQLException e) {
             throw new RuntimeException(e);
     }
+}
+     
+     public void apagar(int idTipoCompartimento) {
+        try {
+            String sql = "DELETE FROM TipoCompartimento WHERE idTipoCompartimento=?";
+            stmt = this.con.prepareStatement(sql);
+            stmt.setInt(1, idTipoCompartimento);
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsavelDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
 }

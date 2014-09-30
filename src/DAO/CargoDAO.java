@@ -37,7 +37,7 @@ public class CargoDAO {
     public List<Cargo> listarCargos(){
         String sql = "select * from cargo";
         try {
-            List<Cargo> lista = new ArrayList<Cargo>();
+            List<Cargo> lista = new ArrayList<>();
             stmt = this.con.prepareStatement(sql);//Conexao feita
             rs = stmt.executeQuery();
             while(rs.next()){
@@ -53,5 +53,18 @@ public class CargoDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    public void apagar(int idCargo) {
+        try {
+            String sql = "DELETE FROM Cargo WHERE idCargo=?";
+            stmt = this.con.prepareStatement(sql);
+            stmt.setInt(1, idCargo);
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsavelDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

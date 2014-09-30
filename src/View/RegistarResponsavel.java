@@ -146,6 +146,11 @@ public class RegistarResponsavel extends javax.swing.JFrame {
                 "Codigo", "Nomes", "Apelido"
             }
         ));
+        tblResponsavel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblResponsavelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblResponsavel);
 
         btnListar.setText("Listar");
@@ -156,8 +161,18 @@ public class RegistarResponsavel extends javax.swing.JFrame {
         });
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
         painelPrincipal.setLayout(painelPrincipalLayout);
@@ -282,6 +297,18 @@ new ConfirmarGravacao();
     listarResponsavel();
     }//GEN-LAST:event_btnListarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       apagar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+    actualizarResponsavel();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void tblResponsavelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblResponsavelMouseClicked
+     onSelectedTable();
+    }//GEN-LAST:event_tblResponsavelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -344,36 +371,47 @@ new ConfirmarGravacao();
     Responsavel rem = new Responsavel();
     ResponsavelController rec = new ResponsavelController();
    
-    public void preencherComboBoxCargo(){
+    private void preencherComboBoxCargo(){
         List<Cargo> cargos = (List<Cargo>)cc.listarCargos();
         for (Cargo cargo : cargos) {
-            cbxCargo.addItem(cargo);
+            cbxCargo.addItem(cargo.getDesignacao());
             
         }
+    }
+    
+    public void onSelectedTable(){
+        int linhaSeleccionada = tblResponsavel.getSelectedRow();
+        txtNome.setText((String)tblResponsavel.getValueAt(linhaSeleccionada,1));
+        txtApelido.setText((String)tblResponsavel.getValueAt(linhaSeleccionada,2));
+        //cbxCargo.setSelectedItem((String)tblResponsavel.getValueAt(linhaSeleccionada,3));
     }
     
     public void registarResponsavel(){
         try {
             rem.setApelido(txtApelido.getText());
+            //rem.setCargo_idCargo(cbxCargo.getSelectedItem
             rem.setCargo_idCargo((Cargo) cbxCargo.getSelectedItem());
             rem.setOutrosNomes(txtNome.getText());
             rec.registarResponsavel(rem);
             JOptionPane.showMessageDialog(null, "Registado com sucesso!");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Errorrrr"+e);
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        }
+   }
+    
+    public void actualizarResponsavel(){
+         int linhaSeleccionada = tblResponsavel.getSelectedRow();
+         int idEst = Integer.parseInt((String)tblResponsavel.getValueAt(linhaSeleccionada,0));//Celula zero contem o id
+          rem.setId(idEst);
+          rem.setOutrosNomes(txtNome.getText());
+          rem.setApelido(txtApelido.getText());
+          //rem.setCargo_idCargo(cbxCargo.getSelectedItem());
+          rec.actualizarResponsavel(rem);
+    }
+    
     
     public void listarResponsavel(){
-        List<Responsavel>responsaveis =(List<Responsavel>)rec.listarResponsavel();//Lista de estudantes proven. dos sevicos
+        List<Responsavel>responsaveis =(List<Responsavel>)rec.listarResponsavel();//Lista de responsaveis proven. dos sevicos
         DefaultTableModel model=(DefaultTableModel)tblResponsavel.getModel();//"Pega" a estrutura/formato da tabela
         for (Responsavel responsavel : responsaveis) {
             String []linhaDaTabela=new String[]{String.valueOf(responsavel.getId()),
@@ -384,4 +422,11 @@ new ConfirmarGravacao();
         tblResponsavel.setModel(model);//Preenchemos a tabela com os valores do model
     }
 
+    public void apagar(){
+         int linhaSeleccionada = tblResponsavel.getSelectedRow();
+         int idEst = Integer.parseInt((String)tblResponsavel.getValueAt(linhaSeleccionada,0));//Celula zero contem o id
+          rem.setId(idEst);
+          rec.apaga(rem);
+    }
+    
 }

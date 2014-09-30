@@ -6,7 +6,6 @@
 
 package DAO;
 
-import Model.Cargo;
 import Model.Responsavel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +35,7 @@ public class ResponsavelDAO {
      public void registarResponsavel(Responsavel responsavel){
         try {
             String sql = "Insert into Responsavel(idResponsavel,apelido,outrosNomes,Cargo_idCargo) values (?,?,?,?)";
+            
             
             stmt = this.con.prepareStatement(sql);
             stmt.setInt(1, responsavel.getId());
@@ -74,5 +74,35 @@ public class ResponsavelDAO {
             throw new RuntimeException(e);
     }
 }
+     
+      public void apagar(Responsavel responsavel) {
+        try {
+            String sql = "DELETE FROM Responsavel WHERE idResponsavel=?";
+            stmt = this.con.prepareStatement(sql);
+            stmt.setInt(1, responsavel.getId());
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsavelDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+    }
+      
+      public void actualizarResponsavel(Responsavel responsavel){
+        String sql = "update responsavel set apelido=?, outrosNomes=?  where idResponsavel=?"; //morada=?
+        try {
+            stmt = this.con.prepareStatement(sql);
+            stmt.setString(1,responsavel.getApelido());
+            stmt.setString(2,responsavel.getOutrosNomes());
+            //stmt.setObject(3,responsavel.getCargo_idCargo());
+            stmt.setInt(3,responsavel.getId());
+            stmt.execute();
+            
+            stmt.close();
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+      
     }
