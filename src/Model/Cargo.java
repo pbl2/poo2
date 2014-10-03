@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 import java.io.Serializable;
@@ -12,7 +11,8 @@ import java.io.Serializable;
  *
  * @author estudante
  */
-public class Cargo implements Serializable{
+public class Cargo implements Serializable {
+
     private int id;
     private String designacao;
 
@@ -20,9 +20,9 @@ public class Cargo implements Serializable{
         this.id = id;
         this.designacao = designacao;
     }
-    
-    public Cargo(){
-        
+
+    public Cargo() {
+
     }
 
     public int getId() {
@@ -41,5 +41,10 @@ public class Cargo implements Serializable{
         this.designacao = designacao;
     }
 
-    
+    //Metodo para retornar o atributo desejado
+    @Override
+    public String toString() {
+        return this.designacao;
+    }
+
 }

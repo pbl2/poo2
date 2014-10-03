@@ -143,7 +143,7 @@ public class RegistarResponsavel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Nomes", "Apelido"
+                "Codigo", "Nomes", "Apelido", "Cargo"
             }
         ));
         tblResponsavel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -374,7 +374,7 @@ new ConfirmarGravacao();
     private void preencherComboBoxCargo(){
         List<Cargo> cargos = (List<Cargo>)cc.listarCargos();
         for (Cargo cargo : cargos) {
-            cbxCargo.addItem(cargo.getDesignacao());
+            cbxCargo.addItem(cargo);//Criar metodo toString no Model
             
         }
     }
@@ -383,19 +383,19 @@ new ConfirmarGravacao();
         int linhaSeleccionada = tblResponsavel.getSelectedRow();
         txtNome.setText((String)tblResponsavel.getValueAt(linhaSeleccionada,1));
         txtApelido.setText((String)tblResponsavel.getValueAt(linhaSeleccionada,2));
-        //cbxCargo.setSelectedItem((String)tblResponsavel.getValueAt(linhaSeleccionada,3));
+        cbxCargo.setSelectedItem((String)tblResponsavel.getValueAt(linhaSeleccionada,3));
     }
     
     public void registarResponsavel(){
         try {
             rem.setApelido(txtApelido.getText());
-            //rem.setCargo_idCargo(cbxCargo.getSelectedItem
+            //rem.setCargo_idCargo(cbxCargo.getSelectedItem);
             rem.setCargo_idCargo((Cargo) cbxCargo.getSelectedItem());
             rem.setOutrosNomes(txtNome.getText());
             rec.registarResponsavel(rem);
             JOptionPane.showMessageDialog(null, "Registado com sucesso!");
         } catch (Exception e) {
-            System.out.println("Errorrrr"+e);
+            System.out.println("Errorrrr" +e);
         }
    }
     
@@ -405,7 +405,7 @@ new ConfirmarGravacao();
           rem.setId(idEst);
           rem.setOutrosNomes(txtNome.getText());
           rem.setApelido(txtApelido.getText());
-          //rem.setCargo_idCargo(cbxCargo.getSelectedItem());
+          rem.setCargo_idCargo((Cargo)cbxCargo.getSelectedItem());
           rec.actualizarResponsavel(rem);
     }
     

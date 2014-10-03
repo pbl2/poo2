@@ -34,15 +34,15 @@ public class ResponsavelDAO {
     
      public void registarResponsavel(Responsavel responsavel){
         try {
-            String sql = "Insert into Responsavel(idResponsavel,apelido,outrosNomes,Cargo_idCargo) values (?,?,?,?)";
+            String sql = "Insert into Responsavel(apelido,outrosNomes,Cargo_idCargo) values (?,?,?)";
             
             
             stmt = this.con.prepareStatement(sql);
-            stmt.setInt(1, responsavel.getId());
-            stmt.setString(2, responsavel.getApelido());
-            stmt.setString(3, responsavel.getOutrosNomes());
+         //   stmt.setInt(1, responsavel.getId());
+            stmt.setString(1, responsavel.getApelido());
+            stmt.setString(2, responsavel.getOutrosNomes());
             //stmt.setInt(4,responsavel.getCargo_idCargo());
-            stmt.setInt(4, responsavel.getCargo_idCargo().getId());
+            stmt.setInt(3, responsavel.getCargo_idCargo().getId());
             
             stmt.execute();
             stmt.close();
@@ -64,7 +64,7 @@ public class ResponsavelDAO {
             responsavel.setId(rs.getInt("idResponsavel"));
             responsavel.setApelido(rs.getString("apelido"));
             responsavel.setOutrosNomes(rs.getString("outrosNomes"));
-            //responsavel.setCargo_idCargo(rs.getInt("Cargo_idCargo"));
+           // responsavel.setCargo_idCargo(rs.getInt("Cargo_idCargo"));
             //responsavel.setCargo_idCargo((Cargo)rs.getObject("Cargo_idCargo"));
             responsaveis.add(responsavel);
         }
