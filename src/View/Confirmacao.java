@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Interface;
+package View;
 
 import javax.swing.JOptionPane;
 

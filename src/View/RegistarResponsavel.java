@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author e1000son
@@ -407,6 +408,7 @@ new ConfirmarGravacao();
           rem.setApelido(txtApelido.getText());
           rem.setCargo_idCargo((Cargo)cbxCargo.getSelectedItem());
           rec.actualizarResponsavel(rem);
+          JOptionPane.showMessageDialog(null, "Actualizado com sucesso!");
     }
     
     
@@ -415,7 +417,7 @@ new ConfirmarGravacao();
         DefaultTableModel model=(DefaultTableModel)tblResponsavel.getModel();//"Pega" a estrutura/formato da tabela
         for (Responsavel responsavel : responsaveis) {
             String []linhaDaTabela=new String[]{String.valueOf(responsavel.getId()),
-                responsavel.getOutrosNomes(),responsavel.getApelido()};
+                responsavel.getOutrosNomes(),responsavel.getApelido(),String.valueOf(responsavel.getCargo_idCargo())};
             model.addRow(linhaDaTabela);//Adicionamos a linha a tabela (model)
         }
         model.setNumRows(responsaveis.size());//Evita duplicacao de registos na tabela

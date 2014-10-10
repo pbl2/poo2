@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class CargoDAO {
     
-     private Connection con;
+    private Connection con;
     PreparedStatement stmt;
     ResultSet rs;
     

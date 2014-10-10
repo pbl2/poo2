@@ -67,7 +67,5 @@ public class Endereco {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    
+    } 
 }
